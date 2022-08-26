@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Monoton">
     <link rel="stylesheet" href="./css/app.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8/dist/vue.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -24,15 +26,37 @@
 
                             </div>
                             <div class="right_myinfo">
-                                <i class="fa-solid fa-circle-notch"></i>
-                                <i class="fa-solid fa-message"></i>
-                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                                <a href=""><i class="fa-solid fa-circle-notch"></i></a>
+                                <a href=""><i class="fa-solid fa-message"></i></a>
+                                <a href=""><i class="fa-solid fa-ellipsis-vertical"></i></a>
 
                             </div>
                         </div>
-                        <div class="notifications"></div>
-                        <div class="search"></div>
-                        <div class="contacts_list"></div>
+                        <div class="notifications">
+                            <span id="notify_off"><i class="fa-solid fa-bell-slash"></i></span>
+                            <div>
+                                <h5>Ricevi notifiche di nuovi messaggi</h5>
+                                <a href="">Attiva le notifiche desktop</a>
+                            </div>
+                        </div>
+                        <div class="search">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text" placeholder="Cerca...">
+                        </div>
+
+                        <ul class="list">
+                            <li class="contact_preview" v-for="user in contacts ">
+                                <img :src="'./img/avatar' + user.avatar + '.jpg'" alt="">      <!-- RICORDATI LO USER -->
+                                <div class="c_chat_info">
+                                    <span class="user_name"> {{user.name}} </span>
+                                    <span class="user_msg">  </span>
+
+                                </div>
+                                <div class="user_date"></div>
+
+                            </li>
+
+                        </ul>
 
                     </div>
                     <div class="chats">

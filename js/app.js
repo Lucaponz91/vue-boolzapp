@@ -166,6 +166,9 @@ const app = new Vue({
         ]
     },
     methods: {
+        lastMsg: function(index) {
+			
+		},
     },
 
 })
