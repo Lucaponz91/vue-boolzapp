@@ -45,14 +45,15 @@
                         </div>
 
                         <ul class="list">
-                            <li class="contact_preview" v-for="user in contacts ">
+                            <li class="contact_preview" v-for="(user,index) in contacts ">
                                 <img :src="'./img/avatar' + user.avatar + '.jpg'" alt="">      <!-- RICORDATI LO USER -->
                                 <div class="c_chat_info">
                                     <span class="user_name"> {{user.name}} </span>
-                                    <span class="user_msg">  </span>
+                                    <span class="user_msg"> {{ lastMsg(index).message }} </span>
+                                    
 
                                 </div>
-                                <div class="user_date"></div>
+                                <div class="user_date">{{lastMsg(index).date}}</div>
 
                             </li>
 
@@ -60,6 +61,17 @@
 
                     </div>
                     <div class="chats">
+                        <div class="chat_details">
+                            <div class="details_left">
+
+                            </div>
+                            <div class="details_right">
+                                
+                            </div>
+                        </div>
+                        <div class="main_chat"></div>
+                        <div class="to_send_chat"></div>
+                        
 
                     </div>
 
