@@ -45,8 +45,10 @@
                         </div>
 
                         <ul class="list">
-                            <li class="contact_preview" v-for="(user,index) in contacts"
-                            :class="cIndex === index ? 'c_active' : '' "> <!-- PROBABILMENTE DA MODIFICARE -->
+                            <li class="contact_preview" 
+                            v-for="(user,index) in contacts"
+                            :class="cIndex === index ? 'c_active' : '' "
+                            @click="setActive(index)"> <!-- PROBABILMENTE DA MODIFICARE -->
                                 <img :src="'./img/avatar' + user.avatar + '.jpg'" alt="">      <!-- RICORDATI LO USER -->
                                 <div class="c_chat_info">
                                     <span class="user_name"> {{user.name}} </span>

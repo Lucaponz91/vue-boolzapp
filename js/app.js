@@ -169,10 +169,14 @@ const app = new Vue({
     methods: {
         lastMsg: function(index) {
 			let msg = this.contacts[index].messages;
-            console.log(msg)
+            // console.log(msg)
 			return msg[msg.length - 1]
             
 		},
+        setActive: function(index) {
+            this.cIndex = index
+
+        }
         
     },
     computed: {
