@@ -163,7 +163,8 @@ const contacts= [
 const app = new Vue({
     el: '#root',
     data: { 
-        contacts
+        contacts,
+        cIndex: 0
     },
     methods: {
         lastMsg: function(index) {

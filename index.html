@@ -45,7 +45,8 @@
                         </div>
 
                         <ul class="list">
-                            <li class="contact_preview" v-for="(user,index) in contacts ">
+                            <li class="contact_preview" v-for="(user,index) in contacts"
+                            :class="cIndex === index ? 'c_active' : '' "> <!-- PROBABILMENTE DA MODIFICARE -->
                                 <img :src="'./img/avatar' + user.avatar + '.jpg'" alt="">      <!-- RICORDATI LO USER -->
                                 <div class="c_chat_info">
                                     <span class="user_name"> {{user.name}} </span>
@@ -63,14 +64,26 @@
                     <div class="chats">
                         <div class="chat_details">
                             <div class="details_left">
+                                <img src="" alt="">
+                                <div class="c_chat_info">
+                                    <span class="user_name">Pinco Pallo</span>
+                                    <span class="last_login">Ultimo accesso:</span>
+                                </div>
 
                             </div>
                             <div class="details_right">
+                                <i class="fas fa-search"></i>
+                                <i class="fas fa-paperclip"></i>
+                                <i class="fas fa-ellipsis-v"></i>
                                 
                             </div>
                         </div>
                         <div class="main_chat"></div>
-                        <div class="to_send_chat"></div>
+                        <div class="to_send_chat">
+                            <span><i class="far fa-smile"></i></span>
+                            <input type="text">
+                            <span><i class="fas fa-microphone"></i></span>
+                        </div>
                         
 
                     </div>
