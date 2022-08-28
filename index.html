@@ -66,10 +66,10 @@
                     <div class="chats">
                         <div class="chat_details">
                             <div class="details_left">
-                                <img src="" alt="">
+                                <img :src="'./img/avatar' + contacts[cIndex].avatar + '.jpg' " alt="">
                                 <div class="c_chat_info">
-                                    <span class="user_name">Pinco Pallo</span>
-                                    <span class="last_login">Ultimo accesso:</span>
+                                    <span class="user_name">{{contacts[cIndex].name}}</span>
+                                    <span class="last_login">Ultimo accesso: {{lastMsg(cIndex).date}}</span>
                                 </div>
 
                             </div>
@@ -80,10 +80,15 @@
                                 
                             </div>
                         </div>
-                        <div class="main_chat"></div>
+                        <div class="main_chat">
+                            <div class="msg" v-for="(messaggio,iMsg) in contacts[cIndex].messages"
+                            :class="messaggio.status === 'sent' ? 'msg_sent' : 'msg_received' ">
+                                {{messaggio.message}}
+                            </div>
+                        </div>
                         <div class="to_send_chat">
                             <span><i class="far fa-smile"></i></span>
-                            <input type="text">
+                            <input @keyup.enter="addMsg" v-model="newMsg" placeholder="Scrivi un messaggio" type="text">
                             <span><i class="fas fa-microphone"></i></span>
                         </div>
                         

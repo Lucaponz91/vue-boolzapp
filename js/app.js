@@ -164,18 +164,29 @@ const app = new Vue({
     el: '#root',
     data: { 
         contacts,
-        cIndex: 0
+        cIndex: 0,
+        newMsg: ''
     },
     methods: {
         lastMsg: function(index) {
-			let msg = this.contacts[index].messages;
+			let lstMsg = this.contacts[index].messages;
             // console.log(msg)
-			return msg[msg.length - 1]
+			return lstMsg[lstMsg.length - 1]
             
 		},
         setActive: function(index) {
             this.cIndex = index
 
+        },
+        addMsg: function(){
+            let msgObj = {
+                date: time,
+                message: this.newMsg,
+                status: 'sent',
+            }
+            console.log('add funge')
+            console.log(msgObj)
+            this.contacts[this.cIndex].messages.push(msgObj)
         }
         
     },
@@ -186,3 +197,8 @@ const app = new Vue({
     
 })
 // end Vue
+console.log (contacts[0].messages[0].message)
+console.log(contacts[0].messages[0].status)
+let today = new Date();
+let time = today.getHours() + ":" + today.getMinutes() ;
+console.log(time)
