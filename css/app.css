@@ -200,6 +200,7 @@
 .main_chat {
     display: flex;
     padding: 10px;
+    overflow-y: auto;
     flex-direction: column;
     height: calc(90vh - 130px);
     background-image: url(../img/mine.jpg);
