@@ -105,7 +105,8 @@ const contacts= [
         messages: [
             {
                 date: '10/01/2020 15:30:55',
-                message: 'Ciao Claudia, hai novità?', status: 'sent'
+                message: 'Ciao Claudia, hai novità?', 
+                status: 'sent'
             },
             {
                 date: '10/01/2020 15:50:00',
@@ -187,6 +188,23 @@ const app = new Vue({
             console.log('add funge')
             console.log(msgObj)
             this.contacts[this.cIndex].messages.push(msgObj)
+            console.log(this.botAnswer)
+            this.botAnswer(this.newMSg)
+            this.newMsg = ''
+        },
+        botAnswer: function (){
+            setTimeout(() => {
+				
+                let obj = {
+                    date: time,
+                    message: "ok",
+                    status: 'received',
+                }
+                this.contacts[this.cIndex].messages.push(obj)
+	
+
+            }, 1000);
+
         }
         
     },
