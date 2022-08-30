@@ -47,7 +47,7 @@
 
                         <ul class="list">
                             <li class="contact_preview"
-                            v-if="user.visible" 
+                            v-if="user.visible == true" 
                             v-for="(user,index) in contacts"
                             :class="cIndex === index ? 'c_active' : '' "
                             @click="setActive(index)"> <!-- PROBABILMENTE DA MODIFICARE -->
