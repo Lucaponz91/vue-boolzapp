@@ -42,11 +42,12 @@
                         <div class="search">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <input type="text" placeholder="Cerca..." v-model="searchBox"
-                            @keyup.utente="searchUser">
+                            @keyup="searchUser">
                         </div>
 
                         <ul class="list">
-                            <li class="contact_preview" 
+                            <li class="contact_preview"
+                            v-if="user.visible" 
                             v-for="(user,index) in contacts"
                             :class="cIndex === index ? 'c_active' : '' "
                             @click="setActive(index)"> <!-- PROBABILMENTE DA MODIFICARE -->

@@ -166,7 +166,8 @@ const app = new Vue({
     data: { 
         contacts,
         cIndex: 0,
-        newMsg: ''
+        newMsg: '',
+        searchBox:''
     },
     methods: {
         lastMsg: function(index) {
@@ -180,8 +181,9 @@ const app = new Vue({
 
         },
         addMsg: function(){
-            const trimText = this.newMsg.trim()
-            if (trimText === '') return
+            const trimmedText = this.newMsg.trim()
+            if (trimmedText === '') return
+            const messages = this.contacts[this.cIndex].messages
             let msgObj = {
                 date: time,
                 message: this.newMsg,
@@ -189,12 +191,13 @@ const app = new Vue({
             }
             console.log('add funge')
             console.log(msgObj)
-            this.contacts[this.cIndex].messages.push(msgObj)
+            messages.push(msgObj)
             console.log(this.botAnswer)
             this.botAnswer(this.newMSg)
             this.newMsg = ''
         },
         botAnswer: function (){
+            const messages = this.contacts[this.cIndex].messages
             setTimeout(() => {
 				
                 let obj = {
@@ -202,12 +205,30 @@ const app = new Vue({
                     message: "ok",
                     status: 'received',
                 }
-                this.contacts[this.cIndex].messages.push(obj)
+                messages.push(obj)
 	
 
             }, 1000);
 
-        }
+        },
+        searchUser(){
+
+            let toSearch = this.searchBox.toLowerCase();
+            console.log(this.searchBox)
+
+            console.log(toSearch);
+
+            this.contacts.forEach((utente) => {
+
+                if (utente.name.toLowerCase().includes(toSearch)) {
+                    
+                    utente.visible = true;
+                } else {
+                    utente.visible = false;
+                }
+            });
+
+        },
         
     },
     computed: {
