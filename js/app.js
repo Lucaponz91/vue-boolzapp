@@ -180,6 +180,8 @@ const app = new Vue({
 
         },
         addMsg: function(){
+            const trimText = this.newMsg.trim()
+            if (trimText === '') return
             let msgObj = {
                 date: time,
                 message: this.newMsg,

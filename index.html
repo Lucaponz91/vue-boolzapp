@@ -41,7 +41,8 @@
                         </div>
                         <div class="search">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" placeholder="Cerca...">
+                            <input type="text" placeholder="Cerca..." v-model="searchBox"
+                            @keyup.utente="searchUser">
                         </div>
 
                         <ul class="list">
