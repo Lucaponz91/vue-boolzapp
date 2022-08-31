@@ -86,6 +86,7 @@
                             <div class="msg" v-for="(messaggio,iMsg) in contacts[cIndex].messages"
                             :class="messaggio.status === 'sent' ? 'msg_sent' : 'msg_received' ">
                                 {{messaggio.message}}
+                                <i class="fas fa-chevron-down"></i>
                             </div>
                         </div>
                         <div class="to_send_chat">
